@@ -1,0 +1,37 @@
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let marca of listaMarcas">
+      <td>{{ marca.id }}</td>
+      <td>{{ marca.nombre }}</td>
+      <td>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary mx-1"
+            (click)="editar(marca)"
+          >
+            editar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary mx-1"
+            (click)="eliminar(marca)"
+          >
+            eliminar
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="actualizarTabla()">
+  Actualizar
+</button>
