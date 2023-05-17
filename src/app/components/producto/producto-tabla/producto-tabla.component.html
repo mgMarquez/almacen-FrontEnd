@@ -1,1 +1,55 @@
-<p>producto-tabla works!</p>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Rubro</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Precio</th>
+      <th scope="col">
+        <button
+          type="button"
+          class="btn btn-success mx-1"
+          (click)="agregarMarca()"
+        >
+          agregar
+        </button>
+      </th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of listaProd">
+      <td>{{ producto.id }}</td>
+      <td>{{ producto.nombre }}</td>
+      <td>{{ producto.descripcion }}</td>
+      <td>{{ producto.marca.nombre }}</td>
+      <td>{{ producto.rubro.nombre }}</td>
+      <td>{{ producto.cantidadEnStock }}</td>
+      <td>{{ producto.precio }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary mx-1"
+          (click)="editar(producto)"
+        >
+          editar
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger mx-1"
+          (click)="eliminar(producto)"
+        >
+          eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-secondary" (click)="actualizarTabla()">
+  Actualizar
+</button>
