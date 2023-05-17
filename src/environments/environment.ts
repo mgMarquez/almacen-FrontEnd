@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: ''
+    apiUrl: 'https://almacen-mgmarquez.onrender.com/api'
 };
