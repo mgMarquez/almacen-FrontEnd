@@ -16,22 +16,22 @@
       <td>{{ rubro.id }}</td>
       <td>{{ rubro.nombre }}</td>
       <td>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary mx-1"
-            (click)="editar(rubro)"
-          >
-            editar
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger mx-1"
-            (click)="eliminar(rubro)"
-          >
-            eliminar
-          </button>
-        </div>
+        <button
+          type="button"
+          class="btn btn-primary mx-1"
+          (click)="editar(rubro)"
+        >
+          editar
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger mx-1"
+          (click)="eliminar(rubro)"
+        >
+          eliminar
+        </button>
       </td>
     </tr>
   </tbody>

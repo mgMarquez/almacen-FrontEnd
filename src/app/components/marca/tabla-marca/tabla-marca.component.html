@@ -4,7 +4,11 @@
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">
-        <button type="button" class="btn btn-success mx-1" (click)="agregarMarca()">
+        <button
+          type="button"
+          class="btn btn-success mx-1"
+          (click)="agregarMarca()"
+        >
           agregar
         </button>
       </th>
@@ -16,22 +20,22 @@
       <td>{{ marca.id }}</td>
       <td>{{ marca.nombre }}</td>
       <td>
-        <div>
-          <button
-            type="button"
-            class="btn btn-primary mx-1"
-            (click)="editar(marca)"
-          >
-            editar
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger mx-1"
-            (click)="eliminar(marca)"
-          >
-            eliminar
-          </button>
-        </div>
+        <button
+          type="button"
+          class="btn btn-primary mx-1"
+          (click)="editar(marca)"
+        >
+          editar
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger mx-1"
+          (click)="eliminar(marca)"
+        >
+          eliminar
+        </button>
       </td>
     </tr>
   </tbody>
