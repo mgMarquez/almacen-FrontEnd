@@ -4,7 +4,7 @@
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">
-        <button type="button" class="btn btn-success mx-1" (click)="agregarMarca()">
+        <button type="button" class="btn btn-success" (click)="agregarRubro()">
           agregar
         </button>
       </th>
@@ -12,22 +12,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let marca of listaMarcas">
-      <td>{{ marca.id }}</td>
-      <td>{{ marca.nombre }}</td>
+    <tr *ngFor="let rubro of listaRubros">
+      <td>{{ rubro.id }}</td>
+      <td>{{ rubro.nombre }}</td>
       <td>
         <div>
           <button
             type="button"
             class="btn btn-primary mx-1"
-            (click)="editar(marca)"
+            (click)="editar(rubro)"
           >
             editar
           </button>
           <button
             type="button"
             class="btn btn-danger mx-1"
-            (click)="eliminar(marca)"
+            (click)="eliminar(rubro)"
           >
             eliminar
           </button>

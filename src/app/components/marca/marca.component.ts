@@ -16,10 +16,6 @@ export class MarcaComponent {
     });
   }
 
-  getMarca() {
-    this.marcaService.getMarca()
-      .subscribe(data => {
-        console.log(data);
-    });
-  }
+
+
 }
