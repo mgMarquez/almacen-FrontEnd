@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Marca } from 'src/app/interfaces/marca';
-import { MarcaService } from '../../../services/marca.service';
+import { MarcaService } from 'src/app/services/marca.service';
 
 @Component({
-  selector: 'app-tabla-marca',
-  templateUrl: './tabla-marca.component.html',
-  styleUrls: ['./tabla-marca.component.css'],
+  selector: 'app-marca-tabla',
+  templateUrl: './marca-tabla.component.html',
+  styleUrls: ['./marca-tabla.component.css'],
 })
-export class TablaMarcaComponent implements OnInit {
+export class MarcaTablaComponent implements OnInit {
+  @Output() eventData = new EventEmitter();
   listaMarcas: Marca[] = [];
 
   constructor(private marcaService: MarcaService) {}
@@ -26,7 +27,7 @@ export class TablaMarcaComponent implements OnInit {
   }
 
   editar(marca: Marca): void {
-    throw new Error('Method not implemented.');
+    this.eventData.emit(marca);
   }
 
   eliminar(marca: Marca): void {

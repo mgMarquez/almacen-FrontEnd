@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MarcaService } from '../../services/marca.service';
+import { Marca } from 'src/app/interfaces/marca';
 
 @Component({
   selector: 'app-marca',
@@ -16,6 +17,8 @@ export class MarcaComponent {
     });
   }
 
-
+  marcaSeleccionada(marca: Marca) {
+    console.log(marca);
+  }
 
 }
