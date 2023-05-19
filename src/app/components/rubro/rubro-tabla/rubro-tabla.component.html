@@ -4,7 +4,13 @@
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">
-        <button type="button" class="btn btn-success" (click)="agregarRubro()">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#rubroModal"
+          (click)="rubroModal.crearRubro()"
+        >
           agregar
         </button>
       </th>
@@ -19,7 +25,9 @@
         <button
           type="button"
           class="btn btn-primary mx-1"
-          (click)="editar(rubro)"
+          data-bs-toggle="modal"
+          data-bs-target="#rubroModal"
+          (click)="rubroModal.editarRubro(rubro)"
         >
           editar
         </button>
@@ -28,7 +36,7 @@
         <button
           type="button"
           class="btn btn-danger mx-1"
-          (click)="eliminar(rubro)"
+          (click)="rubroModal.eliminarRubro(rubro.id)"
         >
           eliminar
         </button>
@@ -36,6 +44,4 @@
     </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-secondary" (click)="actualizarTabla()">
-  Actualizar
-</button>
+<app-rubro-modal #rubroModal (eventData)="actualizarTabla()"></app-rubro-modal>

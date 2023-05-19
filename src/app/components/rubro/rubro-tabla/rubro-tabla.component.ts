@@ -21,16 +21,4 @@ export class RubroTablaComponent implements OnInit {
         this.listaRubros = rubros;
       })
   }
-
-  agregarRubro() {
-    throw new Error('Method not implemented.');
-  }
-
-  eliminar(rubro:Rubro) {
-    throw new Error('Method not implemented.');
-  }
-
-  editar(rubro:Rubro) {
-    throw new Error('Method not implemented.');
-  }
 }
