@@ -13,6 +13,7 @@ import { ProductoTablaComponent } from './components/producto/producto-tabla/pro
 import { ProductoModalComponent } from './components/producto/producto-modal/producto-modal.component';
 import { MarcaModalComponent } from './components/marca/marca-modal/marca-modal.component';
 import { MarcaTablaComponent } from './components/marca/marca-tabla/marca-tabla.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MarcaTablaComponent } from './components/marca/marca-tabla/marca-tabla.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

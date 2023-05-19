@@ -7,18 +7,4 @@ import { Marca } from 'src/app/interfaces/marca';
   templateUrl: './marca.component.html',
   styleUrls: ['./marca.component.css'],
 })
-export class MarcaComponent {
-  constructor(private marcaService: MarcaService) {}
-
-  getAllMarcas() {
-    this.marcaService.getAllMarcas()
-      .subscribe(data => {
-        console.log(data);
-    });
-  }
-
-  marcaSeleccionada(marca: Marca) {
-    console.log(marca);
-  }
-
-}
+export class MarcaComponent {}

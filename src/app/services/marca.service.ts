@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class MarcaService {
-  url: string = environment.apiUrl + '/marca';
+  url: string = environment.apiUrl + '/marcas';
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +16,19 @@ export class MarcaService {
     return this.http.get<Marca[]>(this.url);
   }
 
-  getMarca(): Observable<Marca> {
-    return this.http.get<Marca>(this.url + '/1');
+  getMarca(id: number): Observable<Marca> {
+    return this.http.get<Marca>(this.url + `/${id}`);
+  }
+
+  createMarca(marca: Marca): Observable<Marca> {
+    return this.http.post<Marca>(this.url, marca);
+  }
+
+  updateMarca(marca: Marca): Observable<Marca> {
+    return this.http.put<Marca>(this.url + `/${marca.id}`, marca);
+  }
+
+  deleteMarca(id: number): Observable<any>{
+    return this.http.delete(this.url + `/${id}`);
   }
 }

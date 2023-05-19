@@ -8,7 +8,6 @@ import { MarcaService } from 'src/app/services/marca.service';
   styleUrls: ['./marca-tabla.component.css'],
 })
 export class MarcaTablaComponent implements OnInit {
-  @Output() eventData = new EventEmitter();
   listaMarcas: Marca[] = [];
 
   constructor(private marcaService: MarcaService) {}
@@ -22,15 +21,8 @@ export class MarcaTablaComponent implements OnInit {
     });
   }
 
-  agregarMarca() {
-    throw new Error('Method not implemented.');
-  }
-
-  editar(marca: Marca): void {
-    this.eventData.emit(marca);
-  }
-
-  eliminar(marca: Marca): void {
-    throw new Error('Method not implemented.');
+  eliminarMarca(marca: Marca): void {
+    this.marcaService.deleteMarca(marca.id)
+      .subscribe(() => this.actualizarTabla());
   }
 }

@@ -7,7 +7,9 @@
         <button
           type="button"
           class="btn btn-success mx-1"
-          (click)="agregarMarca()"
+          data-bs-toggle="modal"
+          data-bs-target="#marcaModal"
+          (click)="marcaModal.agregarMarca()"
         >
           agregar
         </button>
@@ -25,23 +27,21 @@
           class="btn btn-primary mx-1"
           data-bs-toggle="modal"
           data-bs-target="#marcaModal"
-          (click)="editar(marca)"
+          (click)="marcaModal.editarMarca(marca)"
         >
-          editar
+          Editar
         </button>
       </td>
       <td>
         <button
           type="button"
           class="btn btn-danger mx-1"
-          (click)="eliminar(marca)"
+          (click)="eliminarMarca(marca)"
         >
-          eliminar
+          Eliminar
         </button>
       </td>
     </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-secondary" (click)="actualizarTabla()">
-  Actualizar
-</button>
+<app-marca-modal #marcaModal (eventData)="actualizarTabla()"></app-marca-modal>
