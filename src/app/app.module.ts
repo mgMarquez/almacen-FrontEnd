@@ -14,6 +14,7 @@ import { ProductoModalComponent } from './components/producto/producto-modal/pro
 import { MarcaModalComponent } from './components/marca/marca-modal/marca-modal.component';
 import { MarcaTablaComponent } from './components/marca/marca-tabla/marca-tabla.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuNavegacionComponent } from './components/menu-navegacion/menu-navegacion.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductoTablaComponent,
     ProductoModalComponent,
     MarcaModalComponent,
-    MarcaTablaComponent
+    MarcaTablaComponent,
+    MenuNavegacionComponent
   ],
   imports: [
     BrowserModule,
