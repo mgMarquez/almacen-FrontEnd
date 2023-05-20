@@ -1,7 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Marca } from 'src/app/interfaces/marca';
 import { Producto } from 'src/app/interfaces/producto';
+import { Rubro } from 'src/app/interfaces/rubro';
+import { MarcaService } from 'src/app/services/marca.service';
 import { ProductoService } from 'src/app/services/producto.service';
+import { RubroService } from 'src/app/services/rubro.service';
 
 @Component({
   selector: 'app-producto-modal',
@@ -12,27 +16,46 @@ export class ProductoModalComponent {
   @Output() evenData = new EventEmitter();
   formProducto: FormGroup;
   isEdicion: boolean = false;
+  marcas: Marca[] = [];
+  rubros: Rubro[] = [];
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private marcaService: MarcaService,
+    private rubroService: RubroService
   ) {
-    this.formProducto = formBuilder.group({
+    this.formProducto = this.formBuilder.group({
       id: [0],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
       cantidadEnStock: [0, Validators.required],
       precio: [0, Validators.required],
+      marca: this.formBuilder.group({
+        id: [0],
+        nombre: [''],
+      }),
+    });
+  }
+
+  cargarMenuOpciones(): void {
+    this.marcaService.getAllMarcas().subscribe((marcas) => {
+      this.marcas = marcas;
+    });
+    this.rubroService.getAllRubros().subscribe((rubros) => {
+      this.rubros = rubros;
     });
   }
 
   nuevoProducto(): void {
     this.isEdicion = false;
     this.formProducto.reset();
+    this.cargarMenuOpciones();
   }
 
   editarProducto(producto: Producto) {
     this.isEdicion = true;
+    this.cargarMenuOpciones();
     this.formProducto.patchValue(producto);
   }
 
@@ -40,9 +63,6 @@ export class ProductoModalComponent {
     console.log(this.formProducto.value);
     let producto: Producto = this.formProducto.value;
 
-    // TODO: cambiar la prueba de agregar marca y rubro
-    producto.marca = { id: 1, nombre: '' };
-    producto.rubro = { id: 1, nombre: '' };
     if (this.isEdicion) {
       this.productoService
         .updateProducto(producto)
@@ -52,5 +72,9 @@ export class ProductoModalComponent {
         .createProducto(producto)
         .subscribe(() => this.evenData.emit());
     }
+  }
+
+  mostrar(): void {
+    console.log(this.formProducto.value);
   }
 }

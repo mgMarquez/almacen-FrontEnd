@@ -62,6 +62,32 @@
             />
             <label for="precioInput">Precio</label>
           </div>
+          <div class="form-floating mb-3">
+            <select
+              class="form-select"
+              id="floatingSelect"
+              aria-label="Floating label select example"
+            >
+              <option selected>Seleccionar marca</option>
+              <option *ngFor="let marca of marcas" [value]="marca">
+                {{ marca.nombre }}
+              </option>
+            </select>
+            <label for="floatingSelect">Marca</label>
+          </div>
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="floatingSelect"
+              aria-label="Floating label select example"
+            >
+              <option selected>Seleccionar rubro</option>
+              <option *ngFor="let rubro of rubros" [value]="rubro">
+                {{ rubro.nombre }}
+              </option>
+            </select>
+            <label for="floatingSelect">Rubro</label>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -76,6 +102,7 @@
         >
           Guardar cambios
         </button>
+        <button type="button" class="btn" (click)="mostrar()">mostrar</button>
       </div>
     </div>
   </div>
