@@ -1,1 +1,82 @@
-<p>producto-modal works!</p>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="productoModal"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  aria-labelledby="productoModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="productoModalLabel">Producto</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formProducto">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="nombreInput"
+              placeholder="nombre"
+              formControlName="nombre"
+            />
+            <label for="nombreInput">Nombre</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="descripcionInput"
+              placeholder="descripcion"
+              formControlName="descripcion"
+            />
+            <label for="descripcionInput">Descripción</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="cantidadEnStockInput"
+              placeholder="cantidadEnStock"
+              formControlName="cantidadEnStock"
+            />
+            <label for="cantidadEnStockInput">Stock</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="precioInput"
+              placeholder="precio"
+              formControlName="precio"
+            />
+            <label for="precioInput">Precio</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="onSubmit()"
+        >
+          Guardar cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

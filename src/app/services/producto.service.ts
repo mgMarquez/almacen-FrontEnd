@@ -5,12 +5,12 @@ import { Producto } from '../interfaces/producto';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductoService {
-  url:string = environment.apiUrl + '/productos';
+  url: string = environment.apiUrl + '/productos';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   createProducto(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(this.url, producto);
