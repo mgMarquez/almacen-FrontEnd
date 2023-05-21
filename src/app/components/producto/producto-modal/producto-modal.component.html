@@ -62,27 +62,29 @@
             />
             <label for="precioInput">Precio</label>
           </div>
-          <div class="form-floating mb-3">
+          <div class="form-floating mb-3" formGroupName="marca">
             <select
               class="form-select"
               id="floatingSelect"
               aria-label="Floating label select example"
+              formControlName="id"
             >
               <option selected>Seleccionar marca</option>
-              <option *ngFor="let marca of marcas" [value]="marca">
+              <option *ngFor="let marca of marcas" [ngValue]="marca.id">
                 {{ marca.nombre }}
               </option>
             </select>
             <label for="floatingSelect">Marca</label>
           </div>
-          <div class="form-floating">
+          <div class="form-floating" formGroupName="rubro">
             <select
               class="form-select"
               id="floatingSelect"
               aria-label="Floating label select example"
+              formControlName="id"
             >
               <option selected>Seleccionar rubro</option>
-              <option *ngFor="let rubro of rubros" [value]="rubro">
+              <option *ngFor="let rubro of rubros" [ngValue]="rubro.id">
                 {{ rubro.nombre }}
               </option>
             </select>
@@ -102,7 +104,6 @@
         >
           Guardar cambios
         </button>
-        <button type="button" class="btn" (click)="mostrar()">mostrar</button>
       </div>
     </div>
   </div>

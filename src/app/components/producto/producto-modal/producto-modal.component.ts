@@ -35,6 +35,10 @@ export class ProductoModalComponent {
         id: [0],
         nombre: [''],
       }),
+      rubro: this.formBuilder.group({
+        id: [0],
+        nombre: [''],
+      }),
     });
   }
 
@@ -60,7 +64,6 @@ export class ProductoModalComponent {
   }
 
   onSubmit(): void {
-    console.log(this.formProducto.value);
     let producto: Producto = this.formProducto.value;
 
     if (this.isEdicion) {
@@ -72,9 +75,5 @@ export class ProductoModalComponent {
         .createProducto(producto)
         .subscribe(() => this.evenData.emit());
     }
-  }
-
-  mostrar(): void {
-    console.log(this.formProducto.value);
   }
 }
