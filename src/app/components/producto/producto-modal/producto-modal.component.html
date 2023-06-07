@@ -10,7 +10,7 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-primary text-white">
         <h1 class="modal-title fs-5" id="productoModalLabel">Producto</h1>
         <button
           type="button"
@@ -19,7 +19,7 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body bg-light text-dark">
         <form [formGroup]="formProducto">
           <div class="form-floating mb-3">
             <input
@@ -62,44 +62,48 @@
             />
             <label for="precioInput">Precio</label>
           </div>
-          <div class="form-floating mb-3" formGroupName="marca">
+          <!-- Marca -->
+          <div class="form-floating mb-3">
             <select
               class="form-select"
               id="floatingSelect"
               aria-label="Floating label select example"
-              formControlName="id"
+              formControlName="marca"
+              [compareWith]="compareFn"
             >
-              <option selected>Seleccionar marca</option>
-              <option *ngFor="let marca of marcas" [ngValue]="marca.id">
+              <option [ngValue]="null" selected>Seleccionar marca</option>
+              <option *ngFor="let marca of marcas" [ngValue]="marca">
                 {{ marca.nombre }}
               </option>
             </select>
             <label for="floatingSelect">Marca</label>
           </div>
-          <div class="form-floating" formGroupName="rubro">
+          <!-- Rubro -->
+          <div class="form-floating">
             <select
               class="form-select"
               id="floatingSelect"
               aria-label="Floating label select example"
-              formControlName="id"
+              formControlName="rubro"
+              [compareWith]="compareFn"
             >
-              <option selected>Seleccionar rubro</option>
-              <option *ngFor="let rubro of rubros" [ngValue]="rubro.id">
+              <option [ngValue]="null" selected>Seleccionar rubro</option>
+              <option *ngFor="let rubro of rubros" [ngValue]="rubro">
                 {{ rubro.nombre }}
               </option>
             </select>
             <label for="floatingSelect">Rubro</label>
           </div>
         </form>
-        <pre>{{ formProducto.value | json }}</pre>
+        <!-- <pre>{{ formProducto.value | json }}</pre> -->
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      <div class="modal-footer bg-secondary-subtle text-emphasis-secondary">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
           Close
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-success"
           data-bs-dismiss="modal"
           (click)="onSubmit()"
         >

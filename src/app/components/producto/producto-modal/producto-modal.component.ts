@@ -31,14 +31,8 @@ export class ProductoModalComponent {
       descripcion: ['', Validators.required],
       cantidadEnStock: [0, Validators.required],
       precio: [0, Validators.required],
-      marca: this.formBuilder.group({
-        id: [0],
-        nombre: [''],
-      }),
-      rubro: this.formBuilder.group({
-        id: [0],
-        nombre: [''],
-      }),
+      marca: [null, Validators.required],
+      rubro: [null, Validators.required],
     });
   }
 
@@ -75,5 +69,9 @@ export class ProductoModalComponent {
         .createProducto(producto)
         .subscribe(() => this.evenData.emit());
     }
+  }
+
+  compareFn(c1: any, c2: any): boolean {
+    return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 }
