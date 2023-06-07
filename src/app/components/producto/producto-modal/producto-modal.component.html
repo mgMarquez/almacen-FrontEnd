@@ -106,6 +106,7 @@
           class="btn btn-success"
           data-bs-dismiss="modal"
           (click)="onSubmit()"
+          [disabled]="!formProducto.valid"
         >
           Guardar cambios
         </button>

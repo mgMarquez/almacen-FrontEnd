@@ -27,10 +27,10 @@ export class ProductoModalComponent {
   ) {
     this.formProducto = this.formBuilder.group({
       id: [0],
-      nombre: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      cantidadEnStock: [0, Validators.required],
-      precio: [0, Validators.required],
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
+      descripcion: ['', [Validators.required, Validators.minLength(3)]],
+      cantidadEnStock: [0, [Validators.required, Validators.min(1)]],
+      precio: [0, [Validators.required, Validators.min(1)]],
       marca: [null, Validators.required],
       rubro: [null, Validators.required],
     });
